@@ -1,0 +1,15 @@
+# Select the appropriate image
+From node:alpine
+
+# Select the working directory
+WORKDIR '/app'
+
+# Copy the code file instigating the build 
+COPY package.json .
+# Get the corresponding dependencies
+RUN npm install
+
+# Copy all files from current dir to WORKDIR
+COPY . .
+
+CMD ["npm", "run", "start"]
